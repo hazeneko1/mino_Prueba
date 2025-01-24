@@ -25,7 +25,4 @@ const puppeteer = require('puppeteer');
     console.log("No se encontró el botón.");
   }
 
-  // Esperar y luego cerrar el navegador
-  await page.waitForTimeout(5000); // Espera 5 segundos
-  await browser.close();
 })();
