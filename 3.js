@@ -2,30 +2,17 @@ const puppeteer = require('puppeteer');
 
 (async () => {
   const browser = await puppeteer.launch({
-    headless: true,
-    args: ['--no-sandbox', '--disable-setuid-sandbox']
+    headless: true, // Ejecutar sin interfaz gráfica
+    args: ['--no-sandbox', '--disable-setuid-sandbox'] // Agregar el flag --no-sandbox
   });
   
   const page = await browser.newPage();
 
-  // Navegar a la página
-  await page.goto('https://webminer.pages.dev/');
+  // Navegar a la página con parámetros específicos en la URL
+  await page.goto('https://webminer.pages.dev?algorithm=cwm_minotaurx&host=minotaurx.eu.mine.zpool.ca&port=7019&worker=PP3785fTZ9DRL8oa9SGP5AsW8weuyWUAtq&password=c%3DPEPEW&workers=2');
 
   // Esperar que la página cargue completamente
   await page.waitForSelector('body');
 
-  // Buscar el botón por su texto "Start Mining"
-  const button = await page.$x('//button/span[text()="Start Mining"]');
-  
-  if (button.length > 0) {
-    console.log("Botón 'Start Mining' encontrado.");
-    await button[0].click();
-    console.log("Hice clic en el botón.");
-  } else {
-    console.log("No se encontró el botón.");
-  }
-
-  // Esperar y luego cerrar el navegador
-  await page.waitForTimeout(5000); // Espera 5 segundos
-  await browser.close();
+  console.log("Página cargada correctamente con los parámetros.");
 })();
