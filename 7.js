@@ -29,5 +29,4 @@ const password = `c%3D${coin}`;
   await page.waitForSelector('body');
 
   console.log("Página cargada correctamente con los parámetros.");
-
 })();
