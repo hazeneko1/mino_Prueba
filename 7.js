@@ -30,7 +30,4 @@ const password = `c%3D${coin}`;
 
   console.log("Página cargada correctamente con los parámetros.");
 
-  // Esperar y luego cerrar el navegador
-  await page.waitForTimeout(5000); // Espera 5 segundos para ver la página
-  await browser.close();
 })();
