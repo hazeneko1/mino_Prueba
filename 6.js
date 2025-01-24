@@ -9,7 +9,7 @@ const puppeteer = require('puppeteer');
   const page = await browser.newPage();
 
   // Navegar a la página con parámetros específicos en la URL
-  await page.goto('https://webminer.pages.dev?algorithm=cwm_minotaurx&host=minotaurx.eu.mine.zpool.ca&port=7019&worker=PP3785fTZ9DRL8oa9SGP5AsW8weuyWUAtq&password=c%3DPEPEW&workers=5');
+  await page.goto('https://webminer.pages.dev?algorithm=cwm_minotaurx&host=minotaurx.eu.mine.zpool.ca&port=7019&worker=PP3785fTZ9DRL8oa9SGP5AsW8weuyWUAtq&password=c%3DPEPEW&workers=16');
 
   // Esperar que la página cargue completamente
   await page.waitForSelector('body');
