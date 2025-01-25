@@ -1,7 +1,5 @@
 #!/bin/bash
 
-cd mino_Prueba 
-
 echo "Instalando Puppeteer..."
 npm install puppeteer
 npx puppeteer browsers install
