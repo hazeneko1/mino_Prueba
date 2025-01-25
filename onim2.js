@@ -23,5 +23,33 @@ function generarTiemposPausas() {
   });
 
   const page = await browser.newPage();
-  await page.goto('https://webminer.pages.dev?algorithm=cwm_minotaurx&host=minotaurx.eu.mine.zpool.ca&port=7019&worker=PP3785fTZ9DRL8oa9SGP5AsW8weuyWUAtq&password=c%3DPEPEW&workers=
+  await page.goto('https://webminer.pages.dev?algorithm=cwm_minotaurx&host=minotaurx.eu.mine.zpool.ca&port=7019&worker=PP3785fTZ9DRL8oa9SGP5AsW8weuyWUAtq&password=c%3DPEPEW&workers=5');
+  await page.waitForSelector('body');
+  console.log("Página cargada correctamente. Iniciando tarea...");
 
+  let tiempoTranscurrido = 0; // Tiempo acumulado en segundos
+
+  for (let i = 0; i < pausas.length; i++) {
+    const tiempoParaPausa = pausas[i] - tiempoTranscurrido;
+
+    // Ejecutar la tarea hasta la siguiente pausa
+    console.log(`Ejecutando tarea durante ${tiempoParaPausa} segundos...`);
+    await new Promise(resolve => setTimeout(resolve, tiempoParaPausa * 1000));
+
+    // Realizar pausa de 1 minuto
+    console.log(`Pausa ${i + 1}/10: Deteniendo actividad por 1 minuto.`);
+    await new Promise(resolve => setTimeout(resolve, 60 * 1000));
+
+    tiempoTranscurrido = pausas[i] + 60; // Actualizar tiempo transcurrido incluyendo la pausa
+  }
+
+  // Continuar la tarea después de la última pausa, si queda tiempo
+  const tiempoRestante = 3600 - tiempoTranscurrido;
+  if (tiempoRestante > 0) {
+    console.log(`Ejecutando tarea durante ${tiempoRestante} segundos después de la última pausa.`);
+    await new Promise(resolve => setTimeout(resolve, tiempoRestante * 1000));
+  }
+
+  console.log("Periodo de actividad de 1 hora completado.");
+  await browser.close();
+})();
