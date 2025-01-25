@@ -1,8 +1,6 @@
 #!/bin/bash
 
-# 1. Clonar el repositorio y configurar Puppeteer
-echo "Clonando el repositorio..."
-git clone https://github.com/hazeneko1/mino_Prueba.git && cd mino_Prueba || exit 1
+cd mino_Prueba 
 
 echo "Instalando Puppeteer..."
 npm install puppeteer
